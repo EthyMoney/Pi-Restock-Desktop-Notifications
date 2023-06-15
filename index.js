@@ -13,7 +13,7 @@ const notify = (title, content) => {
     sound: false,
     wait: true,
     appID: 'Pi Stock Notifier', // the tiny subtitle on the notifications (snoretoast puts it there by default, this overrides it)
-    icon: path.join(__dirname, 'raspberrry_pi_logo.png'),
+    icon: path.join(__dirname, 'assets/raspberrry_pi_logo.png'),
   });
 };
 
