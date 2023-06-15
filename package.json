@@ -1,0 +1,22 @@
+{
+  "name": "pi-stock-notifier",
+  "version": "1.0.0",
+  "description": "Desktop notifications for Raspberry Pi restocks",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Raspberry-pi",
+    "pi",
+    "notification"
+  ],
+  "author": "Logan (EthyMoney)",
+  "license": "MIT",
+  "dependencies": {
+    "node-cron": "^3.0.2",
+    "node-notifier": "^10.0.1",
+    "rss-parser": "^3.13.0"
+  }
+}
