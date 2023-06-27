@@ -20,7 +20,13 @@ const notify = (title, content) => {
 notify('Pi Stock Notifier', 'Pi Stock Notifier is running, will notify you when Raspberry Pi\'s are in stock!')
 
 async function checkFeed(initialCheck = false) {
-  let feed = await parser.parseURL('https://rpilocator.com/feed/');
+  let feed;
+  try { // catch any http errors with the request
+    feed = await parser.parseURL('https://rpilocator.com/feed/');
+  } catch (e) {
+    console.log('Error fetching feed, will try again on next interval');
+    return;
+  }
 
   if (latestTitle !== feed.items[0].title) {
     latestTitle = feed.items[0].title;
