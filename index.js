@@ -40,7 +40,7 @@ async function checkFeed(initialCheck = false) {
     if (item.title.includes('Stock Alert (US)') && !initialCheck) {
       const trimmedTitle = item.title.substring(17);
       notify('Raspberry Pi\'s IN STOCK!', trimmedTitle, item.link);
-      console.log('Raspberry Pi\'s IN STOCK! Check your notifications!')
+      console.log(`Raspberry Pi\'s IN STOCK! ${trimmedTitle}`)
     }
   });
 };
