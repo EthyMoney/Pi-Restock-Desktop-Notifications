@@ -25,7 +25,8 @@ async function checkFeed(initialCheck = false) {
   try {
     feed = await parser.parseURL('https://rpilocator.com/feed/');
   } catch (e) {
-    console.log('Error fetching feed, will try again on next interval');
+    // log time with error message
+    console.log(`[${getCurrentTimeString()}] Error fetching feed, will try again on next interval`);
     return;
   }
 
@@ -38,9 +39,9 @@ async function checkFeed(initialCheck = false) {
   // Iterate over new items and notify if they match the condition
   newItems.forEach(item => {
     if (item.title.includes('Stock Alert (US)') && !initialCheck) {
-      const trimmedTitle = item.title.substring(17);
+      const trimmedTitle = item.title.substring(17).trim();
       notify('Raspberry Pi\'s IN STOCK!', trimmedTitle, item.link);
-      console.log(`Raspberry Pi\'s IN STOCK! ${trimmedTitle}`)
+      console.log(`[${getCurrentTimeString()}] Raspberry Pi\'s IN STOCK! ${trimmedTitle}`)
     }
   });
 };
@@ -53,4 +54,9 @@ cron.schedule('* * * * *', () => {
 // initial check on startup (set initialCheck to true to avoid notification on startup)
 checkFeed(true);
 
-console.log('\nPi Stock Notifier is running, will notify you when Raspberry Pi\'s are in stock!')
+// Helper function get a timestamp for the console messages ending with timezone
+function getCurrentTimeString(){
+  return new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString();
+}
+
+console.log(`\n[${getCurrentTimeString()}] Pi Stock Notifier is running, will notify you when Raspberry Pi\'s are in stock!`)
