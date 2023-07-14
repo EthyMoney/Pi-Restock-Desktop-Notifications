@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/wK9Qwpd.png" alt="rpi-locator-logo" width="140" height="140"><img src="https://i.imgur.com/wGS3rmH.png" alt="raspberry-pi-logo" width="150" height="150">
+<img src="assets/rpilocator-logo.png" alt="rpi-locator-logo" width="140" height="140"><img src="assets/raspberrry_pi_logo.png" alt="raspberry-pi-logo" width="150" height="150">
 
 # Pi-Restock-Desktop-Notifications
  Trying to buy a Pi and use a computer most of your day? Use this to get restock notifications right in your computer's OS when [rpilocator.com](https://rpilocator.com/) sees a Raspberry Pi restock.
