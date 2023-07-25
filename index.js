@@ -5,6 +5,7 @@ const path = require('path');
 
 let parser = new Parser();
 let latestItems = [];
+let consecutiveErrors = 0;
 
 const notify = (title, content, link) => {
   notifier.notify({
@@ -25,9 +26,15 @@ async function checkFeed(initialCheck = false) {
   try {
     feed = await parser.parseURL('https://rpilocator.com/feed/');
   } catch (e) {
+    consecutiveErrors++;
     // log time with error message
-    console.log(`[${getCurrentTimeString()}] Error fetching feed, will try again on next interval`);
+    if (consecutiveErrors > 5) console.log(`[${getCurrentTimeString()}] Haven't been unable to fetch feed for 5 minutes, will keep trying every minute but something might be wrong with the feed or connection..');')'`);
     return;
+  }
+
+  // Reset consecutive errors if feed is fetched successfully
+  if(feed.items.length > 0) {
+    consecutiveErrors = 0;
   }
 
   // Get new items since last check
