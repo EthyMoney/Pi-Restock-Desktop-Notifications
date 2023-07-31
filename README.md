@@ -29,7 +29,7 @@ Before running the application, make sure you have the following software instal
     
 4. (Optional) Customize the checking options:
 
-    The checkFeed() method checks the title contents for the in-stock text and the county code (it's set to United States by default). If you are in a different country, you will want to change that to your own country's code. Check the current feed [here](https://rpilocator.com/feed/) to see previous messages and how their country codes look if you need a reference. This area is where you can also customize the checkup code if you are looking for a specific model of Pi or maybe from a specific vendor. By default it's watching for all models from all vendors in the USA.
+    The checkFeed() method pulls from the RSS feed link which you can customize to only provide data that you want to see. By default it grabs all models, from any vendor, in just the USA. You can customize this feed link for your specific needs. You can select your desired country, model, vendor, etc. See the very bottom of rpilocator's [About Page](https://rpilocator.com/about.cfm) for more info on how to do this, it shows how the URL should look with your selections.
 
 ## Running the Application
 

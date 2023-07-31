@@ -24,7 +24,7 @@ notify('Pi Stock Notifier', 'Pi Stock Notifier is running, will notify you when 
 async function checkFeed(initialCheck = false) {
   let feed;
   try {
-    feed = await parser.parseURL('https://rpilocator.com/feed/');
+    feed = await parser.parseURL('https://rpilocator.com/feed/?country=US'); // You can customize this feed link for your specific needs (your country, model, vendor, etc. See the very bottom of https://rpilocator.com/about.cfm for more info)
   } catch (e) {
     consecutiveErrors++;
     // log time with error message
@@ -45,7 +45,7 @@ async function checkFeed(initialCheck = false) {
 
   // Iterate over new items and notify if they match the condition
   newItems.forEach(item => {
-    if (item.title.includes('Stock Alert (US)') && !initialCheck) {
+    if (item.title.includes('Stock Alert') && !initialCheck) {
       const trimmedTitle = item.title.substring(17).trim();
       notify('Raspberry Pi\'s IN STOCK!', trimmedTitle, item.link);
       console.log(`[${getCurrentTimeString()}] Raspberry Pi\'s IN STOCK! ${trimmedTitle}`)
