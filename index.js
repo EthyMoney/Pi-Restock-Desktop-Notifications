@@ -28,7 +28,7 @@ async function checkFeed(initialCheck = false) {
   } catch (e) {
     consecutiveErrors++;
     // log time with error message
-    if (consecutiveErrors > 5) console.log(`[${getCurrentTimeString()}] Haven't been unable to fetch feed for 5 minutes, will keep trying every minute but something might be wrong with the feed or connection..');')'`);
+    if (consecutiveErrors > 5) console.log(`[${getCurrentTimeString()}] Haven't been unable to fetch feed for 5 minutes, will keep trying every minute but something might be wrong with the feed or connection..`);
     return;
   }
 
