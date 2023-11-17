@@ -33,7 +33,7 @@ async function checkFeed(initialCheck = false) {
   }
 
   // Reset consecutive errors if feed is fetched successfully
-  if(feed.items.length > 0) {
+  if (feed.items.length > 0) {
     consecutiveErrors = 0;
   }
 
@@ -62,7 +62,7 @@ cron.schedule('* * * * *', () => {
 checkFeed(true);
 
 // Helper function get a timestamp for the console messages ending with timezone
-function getCurrentTimeString(){
+function getCurrentTimeString() {
   return new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString();
 }
 

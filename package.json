@@ -15,7 +15,7 @@
   "author": "Logan (EthyMoney)",
   "license": "MIT",
   "dependencies": {
-    "node-cron": "^3.0.2",
+    "node-cron": "^3.0.3",
     "node-notifier": "^10.0.1",
     "rss-parser": "^3.13.0"
   }
